@@ -32,40 +32,47 @@ body {
 }
 
 main {
-  margin-left: 5rem;
-  padding: 1rem;
   background-color: gray;
   min-height: 100vh;
-}
-
-.navbar:hover ~ main {
-  margin-left: 10rem;
+  margin-bottom: 5rem;
+  padding: 1rem;
 }
 
 .navbar {
   position: fixed;
   background-color: var(--bg-primary);
+  bottom: 0;
+  width: 100vw;
+  height: 5rem;
+}
+
+.navbar:hover {
+  width: 10rem;
 }
 
 .navbar-nav {
   list-style: none;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  height: 100%;
 }
 
-.nav-item {
-  width: 100%;
+.logo {
+  display: none;
 }
 
-.nav-item:last-child {
-  margin-top: auto;
+.logo svg {
+  transform: rotate(0deg);
+}
+
+.navbar:hover .logo svg {
+  transform: rotate(-180deg);
 }
 
 .nav-link {
   display: flex;
   align-items: center;
+  justify-content: center;
   height: 5rem;
   color: var(--text-primary);
   text-decoration: none;
@@ -77,20 +84,15 @@ main {
 }
 
 .nav-link svg {
-  min-width: 2rem;
-  margin: 0 1.5rem;
+  max-width: 3rem;
+}
+
+.nav-item {
+  width: 100%;
 }
 
 .link-text {
   display: none;
-}
-
-.navbar:hover {
-  width: 10rem;
-}
-
-.navbar:hover .link-text {
-  display: block;
 }
 
 .fa-primary {
@@ -98,7 +100,7 @@ main {
 }
 
 .fa-secondary {
-  color: red;
+  color: blue;
 }
 
 .fa-primary,
@@ -106,21 +108,12 @@ main {
   transition: var(--transition-speed);
 }
 
-.logo {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.logo svg {
-  transform: rotate(0deg);
-}
-
-.navbar:hover .logo svg {
-  transform: rotate(-180deg);
-}
-
 @media only screen and (min-width: 600px) {
+  main {
+    margin-left: 5rem;
+    margin-bottom: 0;
+  }
+
   .navbar {
     top: 0;
     width: 5rem;
@@ -129,5 +122,38 @@ main {
 
   .navbar:hover {
     width: 10rem;
+  }
+
+  .navbar:hover ~ main {
+    margin-left: 10rem;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+  }
+
+  .logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .nav-link {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+
+  .nav-link svg {
+    min-width: 2rem;
+    margin: 0 1.5rem;
+  }
+
+  .nav-item:last-child {
+    margin-top: auto;
+  }
+
+  .navbar:hover .link-text {
+    display: block;
   }
 }
